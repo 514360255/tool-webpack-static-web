@@ -8,6 +8,7 @@ const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -58,26 +59,15 @@ module.exports = {
                 })
             },
             {
-                test:/\.(png|jpg|jpeg|gif)$/,
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 use:[
                     {
                         loader:'url-loader',
-                        options:{
-                            name:'[name]-[hash:5].[ext]',
-                            limit: 1000,
-                            outputPath:'static/images/' // html和css中图片的输出路径
-                        }
-                    },
-                    {
-                        loader:'img-loader',
-                        options:{
-                            quality: 80
-                        }
-                    },
-                    {
-                        loader:'html-loader',
-                        options:{
-                            attrs:['img:src','img:data-src']
+                        options: {
+                            limit: 10000,
+                            name: 'images/[name].[ext]',
+                            publicPath: '../',
+                            outputPath: 'static/'
                         }
                     }
                 ]
@@ -95,6 +85,10 @@ module.exports = {
             filename: 'index.html',
             title: 'demo',
             chunks: ['_$']
-        })
+        }),
+        new copyWebpackPlugin([{
+            from: __dirname + '/src/static/images/',
+            to: './static/images/'
+        }])
     ]
 };
