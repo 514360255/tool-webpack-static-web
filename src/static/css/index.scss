@@ -4,7 +4,18 @@
  * Date: 2019/2/27
  */
 
-body{
-  height: 10000px;
-  background: url('../images/creativename_600X500.jpg');
+@import "./utils.scss";
+
+html, body{
+  background: url('../images/creativename_600X500.jpg') no-repeat right top;
+  background-size: cover;
+  img{
+    width: 100px;
+    height: 200px;
+  }
+}
+.test{
+  width: pxTransRem(100);
+  height: pxTransRem(100);
+  background-color: red;
 }

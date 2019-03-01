@@ -1,0 +1,73 @@
+/**
+ * Created by sunshine(514360255@qq.com)
+ * User: sunshine
+ * Date: 2019/3/1
+ */
+
+
+// 弹性布局
+@mixin displayFlex() {
+  display: flex;
+  display: -webkit-flex;
+}
+
+// flex
+@mixin flex($val) {
+  flex: 0 0 #{$val}px;
+  -webkit-flex: 0 0 #{$val}px;
+}
+
+// 水平居中
+@mixin justifyContent($value: center) {
+  @if $value != center {
+    $value: $value
+  }
+  justify-content: #{$value};
+  -webkit-justify-content: #{$value};
+}
+
+// 垂直居中
+@mixin alignItems($value: center) {
+  @if $value != center {
+    $value: $value
+  }
+  align-items: #{$value};
+  -webkit-align-items: #{$value};
+}
+
+// 元素显示方向
+@mixin flexDirection($value: column) {
+  @if $value != column {
+    $value: $value
+  }
+  flex-direction: #{$value};
+  -webkit-flex-direction: #{$value};
+}
+
+// 自动换行
+@mixin flexWrap($value: wrap) {
+  @if $value != wrap {
+    $value: $value
+  }
+  flex-wrap: #{$value};
+  -webkit-flex-wrap: #{$value};
+}
+
+// 垂直水平居中
+@mixin translate($direction: null) {
+  @if $direction == null {
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }@else if $direction == X {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+  }@else if $direction == Y {
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+  }
+}
+
+// px 转换成 rem
+@function pxTransRem($value) {
+  @return #{$value / 100}rem;
+}

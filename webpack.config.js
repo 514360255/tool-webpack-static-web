@@ -9,10 +9,12 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     entry: {
-        _$: './src/static/js/_$/_$.ts'
+        main: './src/static/js/main.ts',
+        index: './src/static/js/index.ts'
     },
     output: {
         filename: 'static/js/[name].[hash].js',
@@ -79,12 +81,21 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin('dist'),
-        new ExtractTextPlugin('static/css/[name].css'),
+        new ExtractTextPlugin('static/css/[name].css', {
+            allChunks: false
+        }),
+        new OptimizeCssAssetsPlugin({
+            cssProcessorOptions: {
+                mergeLonghand: false,
+                discardComments: { removeAll: true }
+            },
+            canPrint: true,
+        }),
         new htmlWebpackPlugin({
-            template: './src/view/index.html',
+            template: './src/index.html',
             filename: 'index.html',
             title: 'demo',
-            chunks: ['_$']
+            chunks: ['main', 'index']
         }),
         new copyWebpackPlugin([{
             from: __dirname + '/src/static/images/',
