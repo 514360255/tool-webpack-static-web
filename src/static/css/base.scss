@@ -140,11 +140,25 @@ summary {
   display:none
 }
 
+img{vertical-align: top;}
+body{font-family: Microsoft YaHei;}
+a{text-decoration: none;color: #000;}
+.width{width: 1200px;margin-left:auto;margin-right:auto;box-sizing: border-box;}
+
 // display-flex
 .flex{@include displayFlex()}
 
 // 水平居中
 .justify-content-center{@include justifyContent(center);}
+
+// 右对齐
+.justify-content-end{@include justifyContent(flex-end);}
+
+// 两端对齐
+.justify-content-space-around{@include justifyContent(space-around);}
+
+// 水平均分
+.justify-content-space-between{@include justifyContent(space-between);}
 
 // 垂直居中
 .align-items-center{@include alignItems(center);}
@@ -168,3 +182,81 @@ summary {
 .fixed{position: fixed;}
 .absolute{position: absolute;}
 .relative{position: relative;}
+
+// 显示隐藏
+.hide{display: none;}
+.show{display: block;}
+
+
+.header{
+  min-height: 80px;
+  nav{
+    height: 80px;
+    text-align: center;
+    @include flex(600);
+    a{
+      height: 80px;
+      align-content: center;
+      padding-top: 30px;
+      box-sizing: border-box;
+      &.current{
+        min-width: 70px;
+        &:after{
+          width: 100%;
+          display: block;
+          content: '';
+          height: 4px;
+          background-color: #000;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.module-title{
+  padding-top: 80px;
+  padding-bottom: 60px;
+  text-align: center;
+  box-sizing: border-box;
+  &:after{
+    display: block;
+    content: '';
+    height: 3px;
+    width: 30px;
+    background-color: #e70012;
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    @include translate(X);
+  }
+  h1{
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  span{
+    font-family: Arial;
+  }
+}
+
+footer{
+  padding-top: 80px;
+  box-sizing: border-box;
+  background-color: #000;
+  height: 425px;
+  color: #fff;
+  line-height: 48px;
+  .footer-left{
+  }
+  .footer-right{
+    width: 430px;
+    a{
+      color: #fff;
+      display: inline-block;
+      margin-right: 35px;
+    }
+  }
+}
