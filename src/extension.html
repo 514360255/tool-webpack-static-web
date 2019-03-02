@@ -13,16 +13,20 @@
 </head>
 <body>
 <!--header start-->
-<header class="width flex justify-content-space-around align-items-center header">
-    <img src="static/images/head-logo.png" alt="九杞网络logo">
-    <nav class="flex justify-content-space-between">
-        <a class="relative" href="/">首页</a>
-        <a class="relative" href="customized.html">定制开发</a>
-        <a class="relative current" href="/">运营推广</a>
-        <a class="relative" href="/">广告媒介</a>
-        <a class="relative" href="/">资源整合</a>
-        <a class="relative" href="/">联系我们</a>
-    </nav>
+<header class="width relative flex justify-content-space-around align-items-center header">
+    <div class="head-menu-img">
+        <img class="head-img-btn" src="static/images/head-menu.png">
+        <nav class="fixed hide menu">
+            <a class="relative" href="/">首页</a>
+            <a class="relative" href="customized.html">定制开发</a>
+            <a class="relative current" href="extension.html">运营推广</a>
+            <a class="relative" href="medium.html">广告媒介</a>
+            <a class="relative" href="/">资源整合</a>
+            <a class="relative" href="/">联系我们</a>
+        </nav>
+    </div>
+    <img class="head-logo" src="static/images/head-logo.png" alt="九杞网络logo">
+    <a class="head-message" href=""><img src="static/images/head-message.png"></a>
 </header>
 <!--header end-->
 
@@ -31,7 +35,10 @@
 <!--banner end-->
 
 <!--aq start-->
-<div class="aq flex justify-content-space-between width">
+<div class="aq width">
+    <div class="text-center">
+        <img class="aq-img" src="static/images/aq-img.jpg">
+    </div>
     <div class="aq-content">
         <h1>常见问题？</h1>
         <div class="flex align-items-center aq-list">
@@ -63,7 +70,6 @@
             <span>九杞通过策划和精准抉择为您解决问题</span>
         </div>
     </div>
-    <img src="static/images/aq-img.jpg">
 </div>
 <!--aq end-->
 
@@ -73,53 +79,67 @@
         <h1>代运营推广</h1>
         <span>Agent operation and promotion</span>
     </div>
-    <div class="width flex justify-content-space-between agent-warp">
-        <div class="relative agent-list">
-            <img src="static/images/agent-img1.jpg">
-            <div class="absolute agent-position">
-                <h3>SEM搜索</h3>
-                <span>推广运营</span>
-                <a href="">详情介绍</a>
-            </div>
-        </div>
-        <div class="relative agent-list">
-            <div class="absolute agent-position">
-                <h3>信息流</h3>
-                <span>广告运营</span>
-                <a href="">详情介绍</a>
-            </div>
-        </div>
-        <div class="relative agent-list">
-            <img src="static/images/agent-img2.jpg">
-            <div class="absolute agent-position">
-                <h3>自媒体</h3>
-                <span>内容运营</span>
-                <a href="">详情介绍</a>
-            </div>
-        </div>
-        <div class="relative agent-list">
-            <div class="absolute agent-position">
-                <h3>传统行业</h3>
-                <span>整合营销</span>
-                <a href="">详情介绍</a>
-            </div>
-        </div>
-        <div class="relative agent-list">
-            <img src="static/images/agent-img3.jpg">
-            <div class="absolute agent-position">
-                <h3>O2O平台</h3>
-                <span>推广运营</span>
-                <a href="">详情介绍</a>
-            </div>
-        </div>
+    <div class="flipster">
+        <ul>
+            <li>
+                <div class="relative agent-flipster">
+                    <img src="static/images/agent-img1.jpg" width="100%" height="100%">
+                    <div class="absolute agent-position">
+                        <h3>SEM搜索</h3>
+                        <span>推广运营</span>
+                        <a href="">详情介绍</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="relative agent-flipster">
+                    <img src="static/images/agent-img2.jpg" width="100%" height="100%">
+                    <div class="absolute agent-position">
+                        <h3>信息流</h3>
+                        <span>广告运营</span>
+                        <a href="">详情介绍</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="relative agent-flipster">
+                    <img src="static/images/agent-img3.jpg" width="100%" height="100%">
+                    <div class="absolute agent-position">
+                        <h3>自媒体</h3>
+                        <span>内容运营</span>
+                        <a href="">详情介绍</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="relative agent-flipster">
+                    <img src="static/images/agent-img1.jpg" width="100%" height="100%">
+                    <div class="absolute agent-position">
+                        <h3>传统行业</h3>
+                        <span>整合营销</span>
+                        <a href="">详情介绍</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="relative agent-flipster">
+                    <img src="static/images/agent-img2.jpg" width="100%" height="100%">
+                    <div class="absolute agent-position">
+                        <h3>O2O平台</h3>
+                        <span>推广运营</span>
+                        <a href="">详情介绍</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-    <div class="width desc">
-        我们以百人的专业团队并配备行业顶尖的技术精英，通过对策略、创意、媒介整合和行业发展的深度洞察，建立与之匹配的联动团队，<br>
-        发挥强大的聚合效应，帮助您精准锁定核心目标，减少风险，降低运营成本并确保利润的更大化。
+    <div class="desc">
+        我们以百人的专业团队并配备行业顶尖的技术精英，<br>
+        通过对策略、创意、媒介整合和行业发展的深度洞察，建立与之匹配的<br>
+        联动团队， 发挥强大的聚合效应，帮助您精准锁定核心目标，减少风险，<br>
+        降低运营成本并确保利润的更大化。
         <p>
-            With a professional team of 100 people and equipped with the industry's top technical elites, we have established a matched linkage team through<br> deep insight into strategy, creativity, media integration and industry development.
-
-            Play a powerful aggregation effect to help you accurately target your core objectives, reduce risks, reduce operating costs and ensure greater profits.
+            With a professional team of 100 people and equipped with the industry's top technical elites, we have established a matched linkage team through deep insight into strategy, creativity, media integration and industry development.Play a powerful aggregation effect to help you accurately target your core objectives, reduce risks, reduce operating costs and ensure greater profits.
         </p>
     </div>
 </div>
@@ -144,85 +164,87 @@
             <h1>九杞营销服务</h1>
             <span>Marketing services</span>
         </div>
-        <div class="flex marketing">
-            <div class="marketing-list">
+        <div class="marketing">
+            <div class="flex marketing-list">
                 <i class="relative"></i>
-                <span>账户诊断</span>
-                <p>
-                    基于账户源数据<br />
-                    分析原始投放弊端
-                </p>
+                <div>
+                    <span>账户诊断</span>
+                    <p>
+                        基于账户源数据分析原始投放弊端
+                    </p>
+                </div>
             </div>
-            <div class="marketing-list">
+            <div class="flex marketing-list">
                 <i class="relative"></i>
-                <span>产品沟通</span>
-                <p>
-                    即时沟通企业主所<br />
-                    做的业务范围进行<br />
-                    有效的SWOT
-                </p>
+                <div>
+                    <span>产品沟通</span>
+                    <p>
+                        即时沟通企业主所做的业务范围进行有效的SWOT
+                    </p>
+                </div>
             </div>
-            <div class="marketing-list">
+            <div class="flex marketing-list">
                 <i class="relative"></i>
-                <span>行业云数据谍情</span>
-                <p>
-                    基于云数据分析<br />
-                    行业全况
-                </p>
+                <div>
+                    <span>行业云数据谍情</span>
+                    <p>
+                        基于云数据分析行业全况
+                    </p>
+                </div>
             </div>
-            <div class="marketing-list">
+            <div class="flex marketing-list">
                 <i class="relative"></i>
-                <span>投放策略</span>
-                <p>
-                    综合本企业的<br />
-                    SWOT和同行情况<br />
-                    做差异化营销
-                </p>
+                <div>
+                    <span>投放策略</span>
+                    <p>
+                        综合本企业的SWOT和同行情况做差异化营销
+                    </p>
+                </div>
             </div>
-            <div class="marketing-list">
+            <div class="flex marketing-list">
                 <i class="relative"></i>
-                <span>策略执行</span>
-                <p>
-                    根据投放策略<br />
-                    将数据解读成<br />
-                    账户搭建逻辑
-                </p>
+                <div>
+                    <span>策略执行</span>
+                    <p>
+                        根据投放策略将数据解读成账户搭建逻辑
+                    </p>
+                </div>
             </div>
-            <div class="marketing-list">
+            <div class="flex marketing-list">
                 <i class="relative"></i>
-                <span>监控数据并微调</span>
-                <p>
-                    上线后一个月内<br />
-                    分析账户表现<br />
-                    进行微调
-                </p>
+                <div>
+                    <span>监控数据并微调</span>
+                    <p>
+                        上线后一个月内分析账户表现进行微调
+                    </p>
+                </div>
             </div>
-            <div class="marketing-list">
+            <div class="flex marketing-list">
                 <i class="relative"></i>
-                <span>舆情打造</span>
-                <p>
-                    结合投放数据<br />
-                    将品牌包装与数据<br />
-                    有效结果进行炒作
-                </p>
+                <div>
+                    <span>舆情打造</span>
+                    <p>
+                        结合投放数据将品牌包装与数据有效结果进行炒作
+                    </p>
+                </div>
             </div>
-            <div class="marketing-list">
+            <div class="flex marketing-list">
                 <i class="relative"></i>
-                <span>总结报表</span>
-                <p>
-                    企业主会收到来<br />
-                    自于我们市场分析<br />
-                    组的市场数据报告
-                </p>
+                <div>
+                    <span>总结报表</span>
+                    <p>
+                        企业主会收到来自于我们市场分析组的市场数据报告
+                    </p>
+                </div>
             </div>
-            <div class="marketing-list">
+            <div class="flex marketing-list">
                 <i class="relative"></i>
-                <span>网络营销流程建议</span>
-                <p>
-                    针对营销各环节<br />
-                    进行梳理改善传统<br />
-                    营销模式
-                </p>
+                <div>
+                    <span>网络营销流程建议</span>
+                    <p>
+                        针对营销各环节进行梳理改善传统营销模式
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -230,30 +252,8 @@
 <!--Marketing services end-->
 
 <!--footer start-->
-<footer>
-    <div class="width flex justify-content-space-between align-items-center">
-        <div class="footer-left">
-            <div>电话 Tel：021-00000000</div>
-            <div>邮箱 Email：11111111@qq.com</div>
-            <div>地址 Adress：上海市xxxxxxxxxxxx</div>
-        </div>
-        <div>
-            <img src="static/images/foot-logo.png" alt="九杞网络logo">
-        </div>
-        <div class="footer-right">
-            <div class="nav">
-                <a href="">创业融资</a>
-                <a href="">平台媒体</a>
-                <a href="">网红机构</a>
-                <a href="">异业联盟</a>
-                <a href="">公司简介</a>
-                <a href="">公司公告</a>
-                <a href="">加入我们</a>
-                <a href="">联系我们</a>
-            </div>
-            沪ICP备1111111111号
-        </div>
-    </div>
+<footer class="width flex justify-content-center align-items-center">
+    <img src="static/images/foot-logo.png" alt="九杞网络logo">
 </footer>
 <!--footer end-->
 

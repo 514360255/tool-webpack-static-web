@@ -5,14 +5,18 @@
  */
 import '../css/index.scss';
 
+$(function(){
+    $(".flipster")['flipster']({ style: 'carousel', start: 0 });
+});
+
 
 // π„∏Ê√ΩΩÈ
-let mediaLeftContent: any = $('.media-left-content');
+let mediaContent: any = $('.media-content');
 let mediaLeftTab: any = $('.media-left-tab');
 let tabIndex: number = 0;
 
 mediaLeftTab.on('mouseenter', '.media-left-tab-list', function() {
-   let index: number = $(this).index();
+    let index: number = $(this).index();
     mediaLeftTab
         .find('.media-left-tab-list')
         .eq(index)
@@ -26,10 +30,10 @@ mediaLeftTab.on('mouseenter', '.media-left-tab-list', function() {
     mediaLeftTab
         .find('img')
         .eq(index)
-        .attr('src', 'static/images/media-img'+ (tabIndex + 1) +'-hover.png');
+        .attr('src', 'static/images/media-img'+ (index + 1) +'-hover.png');
     tabIndex = index;
-    mediaLeftContent
-        .find('.media-left-list')
+    mediaContent
+        .find('.media-content-list')
         .eq(index)
         .removeClass('hide')
         .siblings()

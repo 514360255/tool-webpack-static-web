@@ -5,34 +5,39 @@
  * Time: 15:26
  */
 
+@import "./utils.scss";
+
 .problem{
-  margin-bottom: 110px;
-}
-.problem-left, .problem-right{
-  width: 385px;
-}
-.problem-left{
-  text-align: right;
-  > div:nth-child(2){
-    margin-right: 35px;
-  }
-}
-.problem-right{
-  > div:nth-child(2){
-    margin-left: 35px;
-  }
+  margin-bottom: pxTransRem(80);
 }
 .problem-list{
-  margin-bottom: 60px;
-  h3{
-    font-size: 18px;
+  width: 50%;
+  padding-left: pxTransRem(20);
+  padding-right: pxTransRem(20);
+  box-sizing: border-box;
+  margin-bottom: pxTransRem(40);
+  .problem-list-img{
+    text-align: center;
+    img{
+      width: pxTransRem(150);
+      height: pxTransRem(150);
+    }
+  }
+  h2{
+    height: pxTransRem(50);
+    font-size: pxTransRem(24);
     font-weight: normal;
     color: #242424;
-    margin-bottom: 18px;
+    text-align: center;
   }
   p{
-    font-size: 14px;
+    font-size: pxTransRem(20);
+    line-height: pxTransRem(30);
     color: #656565;
+  }
+  .problem-btn{
+    width: pxTransRem(345);
+    height: pxTransRem(55);
   }
 }
 
@@ -40,39 +45,46 @@
 
 
 .service{
-  padding-top: 85px;
-  padding-bottom: 110px;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-top: pxTransRem(85);
+  padding-bottom: pxTransRem(110);
   background-color: #f2f2f2;
+  padding-left: pxTransRem(65);
+  padding-right: pxTransRem(65);
+  img{
+    width: pxTransRem(470);
+  }
   .service-content{
-    width: 466px;
     h1{
-      font-size: 36px;
-      margin-bottom: 40px;
-      margin-top: 0;
+      font-size: pxTransRem(36);
+      margin-bottom: pxTransRem(40);
+      margin-top: pxTransRem(85);
     }
     .service-list{
-      font-size: 16px;
-      line-height: 30px;
+      font-size: pxTransRem(20);
+      line-height: pxTransRem(40);
       &:before{
         display: block;
         content: '';
-        width: 32px;
+        width: pxTransRem(32);
         height: 2px;
         background-color: #e70012;
-        margin-bottom: 25px;
+        margin-bottom: pxTransRem(25);
       }
       &:first-child{
-        margin-right: 115px;
+        margin-right: pxTransRem(115);
       }
     }
     a{
-      width: 145px;
-      height: 45px;
-      line-height: 45px;
+      width: pxTransRem(145);
+      height: pxTransRem(45);
+      line-height: pxTransRem(45);
       background-color: #359eff;
       display: block;
-      margin-top: 40px;
-      font-size: 16px;
+      margin-top: pxTransRem(40);
+      font-size: pxTransRem(16);
       color: #fff;
       text-align: center;
       border-radius: 5px;
@@ -82,41 +94,15 @@
 
 
 .advantages{
-  margin-bottom: 96px;
-  .advantages-list{
-    width: 377px;
-    padding: 2px;
-    border: 1px solid #ededed;
-    color: #494949;
-    font-size: 16px;
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
-    &:first-child{
-      margin-top: 89px;
-    }
-    span{
-      width: 50px;
-      height: 32px;
-      text-align: center;
-      line-height: 32px;
-      color: #fff;
-      font-family: Arial;
-      font-size: 18px;
-      display: inline-block;
-      background: url('../images/advantages-icon.png');
-    }
-  }
-  .advantages-left{
-    span{
-      margin-right: 25px;
-    }
-  }
-  .advantages-right{
-    text-align: right;
-    span{
-      margin-left: 25px;
-      background: url('../images/advantages-icon1.jpg');
+  margin-bottom: pxTransRem(96);
+}
+
+.process{
+  background-color: #000;
+  .module-title{
+    color: #fff;
+    &:after{
+      background-color: #fff;
     }
   }
 }

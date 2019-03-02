@@ -5,3 +5,8 @@
  * Time: 17:11
  */
 import '../css/extension.scss';
+
+
+$(function(){
+    $(".flipster")['flipster']({ style: 'carousel', start: 0 });
+});

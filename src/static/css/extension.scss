@@ -4,176 +4,188 @@
  * Date: 2019/3/2
  * Time: 17:12
  */
+
+@import "./utils.scss";
+
  .aq{
-   padding-left: 50px;
-   padding-right: 115px;
-   margin-top: 110px;
-   margin-bottom: 80px;
+   padding-left: pxTransRem(20);
+   padding-right: pxTransRem(20);
+   margin-top: pxTransRem(110);
+   margin-bottom: pxTransRem(80);
+   .aq-img{
+     width: pxTransRem(421);
+     height: pxTransRem(277);
+     margin-bottom: pxTransRem(70);
+   }
    .aq-content{
      h1{
-       font-size: 32px;
+       font-size: pxTransRem(32);
        margin-top: 0;
-       margin-bottom: 25px;
+       margin-bottom: pxTransRem(25);
      }
      .aq-list{
-       margin-bottom: 20px;
+       margin-bottom: pxTransRem(20);
        img{
          margin-right: 10px;
        }
        span{
-         font-size: 18px;
+         font-size: pxTransRem(20);
          color: #656565;
        }
      }
    }
    .aq-btn{
-     margin-top: 40px;
+     margin-top: pxTransRem(40);
      a{
        display: block;
-       width: 185px;
-       height: 45px;
+       width: pxTransRem(185);
+       height: pxTransRem(45);
        color: #fff;
-       font-size: 16px;
+       font-size: pxTransRem(24);
        background-color: #359eff;
        border-radius: 5px;
        text-align: center;
-       margin-right: 20px;
-       line-height: 45px;
+       margin-right: pxTransRem(20);
+       line-height: pxTransRem(45);
      }
      span{
-       height: 45px;
+       height: pxTransRem(45);
        display: inline-block;
-       font-size: 14px;
+       font-size: pxTransRem(20);
        color: #656565;
-       line-height: 45px;
+       line-height: pxTransRem(45);
      }
    }
  }
 
-
 .agent{
   background-color: #f0f0f0;
-  padding-bottom: 65px;
-  .agent-warp{
-    background-color: #000;
-    margin-bottom: 80px;
-    .agent-list{
-      width: 25%;
-      height: 400px;
-      overflow: hidden;
-      img{
-        width: 100%;
-        left: 0;
-        top: 0;
-        opacity: .5;
-        transition: all .2s linear;
-      }
-      .agent-position{
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 111;
-        color: #fff;
-        text-align: center;
-        h3{
-          margin-top: 115px;
-          font-size: 30px;
-          font-weight: bold;
-          line-height: 1;
-          margin-bottom: 10px;
-        }
-        span{
-          display: block;
-          font-size: 30px;
-        }
-        a{
-          display: block;
-          width: 114px;
-          height: 36px;
-          line-height: 36px;
-          margin-left: auto;
-          margin-right: auto;
-          border: 1px solid #fff;
-          color: #fff;
-          border-radius: 5px;
-          margin-top: 65px;
-        }
-      }
-      &:hover{
-        img{
-          transform: scale(1.2);
-          -webkit-transform: scale(1.2);
-          -moz-transform: scale(1.2);
-          -o-transform: scale(1.2);
-          -ms-transform: scale(1.2);
-          opacity: .7;
-        }
-      }
-    }
-  }
+  padding-bottom: pxTransRem(65);
   .desc{
     text-align: center;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: pxTransRem(18);
+    line-height: pxTransRem(30);
+    color:#343434;
+    padding-left: pxTransRem(20);
+    padding-right: pxTransRem(20);
     p{
       font-size: 12px;
-      color: #bdbdbd;
+      color: #d8d7d7;
       font-family: Arial;
       line-height: 1.2em;
       text-transform : uppercase
     }
   }
+  .flip-items{
+    padding-top: pxTransRem(30);
+    padding-bottom: pxTransRem(30);
+    margin-bottom: pxTransRem(50);
+  }
+  .agent-flipster{
+    width: pxTransRem(328);
+    height: pxTransRem(400);
+    background-color: #fff;
+    box-shadow: 0 5px 20px #000000;
+    &:after{
+      display: block;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, .5);
+    }
+    .agent-position{
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 111;
+      color: #fff;
+      text-align: center;
+      h3{
+        margin-top: pxTransRem(90);
+        font-size: pxTransRem(30);
+        font-weight: bold;
+        line-height: 1;
+        margin-bottom: pxTransRem(20);
+      }
+      span{
+        display: block;
+        font-size: pxTransRem(30);
+      }
+      a{
+        display: block;
+        width: 114px;
+        height: 36px;
+        line-height: 36px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid #fff;
+        color: #fff;
+        border-radius: 5px;
+        margin-top: 65px;
+      }
+    }
+  }
+}
+.flipster{
+  font-size: 14px !important;
 }
 
+@import "./fipster.scss";
+
 .corporate{
-  padding-bottom: 110px;
+  padding-bottom: pxTransRem(110);
   border-bottom: 1px solid #e0e0e0;
 }
 
 
 .marketing{
+  padding-left: pxTransRem(60);
   .marketing-list{
-    width: calc(100% / 9);
-    text-align: center;
     color: #7f7f7f;
+    margin-bottom: pxTransRem(35);
     i{
       display: inline-block;
       border-radius: 100%;
-      width: 30px;
-      height: 30px;
+      width: pxTransRem(30);
+      height: pxTransRem(30);
       border: 1px solid #eb4f38;
+      margin-right: pxTransRem(40);
+      background-color: #fff;
       &:before, &:after{
         display: block;
         content: '';
       }
       &:before{
-        width:18px;
-        height: 18px;
+        width: pxTransRem(18);
+        height: pxTransRem(18);
         background-color: #eb4f38;
         border-radius: 100%;
-        margin-top: 6px;
-        margin-left: 6px;
+        margin-top: pxTransRem(6);
+        margin-left: pxTransRem(6);
       }
     }
     &:not(:last-child) {
       i:after{
         position: absolute;
-        right: -103px;
-        top: 50%;
-        left: 100%;
-        border-top: 1px solid #eb4f38;
+        right: 50%;
+        top: 100%;
+        height: pxTransRem(90);
+        border-left: 1px solid #eb4f38;
       }
     }
     span{
       display: block;
-      font-size: 14px;
-      margin-top: 32px;
+      font-size: pxTransRem(20);
     }
     p{
-      font-size: 12px;
+      font-size: pxTransRem(20);
       line-height: 18px;
       margin-bottom: 0;
+      margin-top: 0;
     }
   }
 }

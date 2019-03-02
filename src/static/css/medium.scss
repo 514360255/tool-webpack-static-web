@@ -5,33 +5,44 @@
  * Time: 16:37
  */
 
+@import "./utils.scss";
+
 .medium-warp{
-  padding-bottom: 55px;
+  padding-bottom: pxTransRem(55);
   border-bottom: 1px solid #e5e5e5;
+  padding-left: pxTransRem(30);
+  padding-right: pxTransRem(30);
 }
 .medium-list{
-  width: 178px;
-  height: 178px;
+  width: pxTransRem(213);
+  height: pxTransRem(213);
   border: 1px solid #e5e5e5;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: pxTransRem(25);
   transition: border-color .2s linear;
-  &:not(:nth-child(6n)) {
-    margin-right: 22px;
+  &:not(:nth-child(3n)) {
+    margin-right: pxTransRem(22);
   }
   .medium-img{
-    height: 70px;
-    margin-top: 40px;
+    height: pxTransRem(70);
+    margin-top: pxTransRem(60);
     transition: margin-top .2s linear;
+    margin-bottom: pxTransRem(10);
+    img{
+      position: relative;
+      top: 50%;
+      @include translate(Y);
+    }
   }
   span{
-    font-size: 16px;
+    display: block;
+    font-size: pxTransRem(16);
     color: #8e8e8e;
   }
   &:hover, .current{
     border-color: #e29937;
     .medium-img{
-      margin-top: 30px;
+      margin-top: pxTransRem(30);
     }
   }
 }
