@@ -1,0 +1,37 @@
+/**
+ * Created by 514360255@qq.com.
+ * User: sunshine
+ * Date: 2019/3/2
+ * Time: 16:37
+ */
+
+.medium-warp{
+  padding-bottom: 55px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.medium-list{
+  width: 178px;
+  height: 178px;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  margin-bottom: 25px;
+  transition: border-color .2s linear;
+  &:not(:nth-child(6n)) {
+    margin-right: 22px;
+  }
+  .medium-img{
+    height: 70px;
+    margin-top: 40px;
+    transition: margin-top .2s linear;
+  }
+  span{
+    font-size: 16px;
+    color: #8e8e8e;
+  }
+  &:hover, .current{
+    border-color: #e29937;
+    .medium-img{
+      margin-top: 30px;
+    }
+  }
+}

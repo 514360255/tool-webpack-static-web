@@ -14,7 +14,10 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = {
     entry: {
         main: './src/static/js/main.ts',
-        index: './src/static/js/index.ts'
+        index: './src/static/js/index.ts',
+        customized: './src/static/js/customized.ts',
+        medium: './src/static/js/medium.ts',
+        extension: './src/static/js/extension.ts'
     },
     output: {
         filename: 'static/js/[name].[hash].js',
@@ -94,8 +97,26 @@ module.exports = {
         new htmlWebpackPlugin({
             template: './src/index.html',
             filename: 'index.html',
-            title: 'demo',
+            title: '首页',
             chunks: ['main', 'index']
+        }),
+        new htmlWebpackPlugin({
+            template: './src/customized.html',
+            filename: 'customized.html',
+            title: '定制开发',
+            chunks: ['main', 'customized']
+        }),
+        new htmlWebpackPlugin({
+            template: './src/medium.html',
+            filename: 'medium.html',
+            title: '广告媒介',
+            chunks: ['main', 'medium']
+        }),
+        new htmlWebpackPlugin({
+            template: './src/extension.html',
+            filename: 'extension.html',
+            title: '运营推广',
+            chunks: ['main', 'extension']
         }),
         new copyWebpackPlugin([{
             from: __dirname + '/src/static/images/',

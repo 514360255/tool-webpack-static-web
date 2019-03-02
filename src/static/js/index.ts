@@ -5,10 +5,12 @@
  */
 import '../css/index.scss';
 
+
 // π„∏Ê√ΩΩÈ
 let mediaLeftContent: any = $('.media-left-content');
 let mediaLeftTab: any = $('.media-left-tab');
 let tabIndex: number = 0;
+
 mediaLeftTab.on('mouseenter', '.media-left-tab-list', function() {
    let index: number = $(this).index();
     mediaLeftTab
@@ -20,11 +22,11 @@ mediaLeftTab.on('mouseenter', '.media-left-tab-list', function() {
     mediaLeftTab
         .find('img')
         .eq(tabIndex)
-        .attr('src', `static/images/media-img${tabIndex + 1}-link.png`);
+        .attr('src', 'static/images/media-img'+ (tabIndex + 1) +'-link.png');
     mediaLeftTab
         .find('img')
         .eq(index)
-        .attr('src', `static/images/media-img${index + 1}-hover.png`);
+        .attr('src', 'static/images/media-img'+ (tabIndex + 1) +'-hover.png');
     tabIndex = index;
     mediaLeftContent
         .find('.media-left-list')

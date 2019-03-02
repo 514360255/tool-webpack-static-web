@@ -1,0 +1,122 @@
+/**
+ * Created by 514360255@qq.com.
+ * User: sunshine
+ * Date: 2019/3/2
+ * Time: 15:26
+ */
+
+.problem{
+  margin-bottom: 110px;
+}
+.problem-left, .problem-right{
+  width: 385px;
+}
+.problem-left{
+  text-align: right;
+  > div:nth-child(2){
+    margin-right: 35px;
+  }
+}
+.problem-right{
+  > div:nth-child(2){
+    margin-left: 35px;
+  }
+}
+.problem-list{
+  margin-bottom: 60px;
+  h3{
+    font-size: 18px;
+    font-weight: normal;
+    color: #242424;
+    margin-bottom: 18px;
+  }
+  p{
+    font-size: 14px;
+    color: #656565;
+  }
+}
+
+
+
+
+.service{
+  padding-top: 85px;
+  padding-bottom: 110px;
+  background-color: #f2f2f2;
+  .service-content{
+    width: 466px;
+    h1{
+      font-size: 36px;
+      margin-bottom: 40px;
+      margin-top: 0;
+    }
+    .service-list{
+      font-size: 16px;
+      line-height: 30px;
+      &:before{
+        display: block;
+        content: '';
+        width: 32px;
+        height: 2px;
+        background-color: #e70012;
+        margin-bottom: 25px;
+      }
+      &:first-child{
+        margin-right: 115px;
+      }
+    }
+    a{
+      width: 145px;
+      height: 45px;
+      line-height: 45px;
+      background-color: #359eff;
+      display: block;
+      margin-top: 40px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+    }
+  }
+}
+
+
+.advantages{
+  margin-bottom: 96px;
+  .advantages-list{
+    width: 377px;
+    padding: 2px;
+    border: 1px solid #ededed;
+    color: #494949;
+    font-size: 16px;
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+    &:first-child{
+      margin-top: 89px;
+    }
+    span{
+      width: 50px;
+      height: 32px;
+      text-align: center;
+      line-height: 32px;
+      color: #fff;
+      font-family: Arial;
+      font-size: 18px;
+      display: inline-block;
+      background: url('../images/advantages-icon.png');
+    }
+  }
+  .advantages-left{
+    span{
+      margin-right: 25px;
+    }
+  }
+  .advantages-right{
+    text-align: right;
+    span{
+      margin-left: 25px;
+      background: url('../images/advantages-icon1.jpg');
+    }
+  }
+}
