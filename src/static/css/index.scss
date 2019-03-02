@@ -219,13 +219,17 @@
     height: 482px;
     background-color: #359eff;
     margin-top: 78px;
-    padding-left: 125px;
+    padding-left: 105px;
     padding-top: 48px;
     padding-right: 40px;
     box-sizing: border-box;
     img{
       margin-right: 56px;
       margin-bottom: 28px;
+    }
+    .media-img-list{
+      height: 400px;
+      overflow-y: auto;
     }
   }
 }

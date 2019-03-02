@@ -9,6 +9,7 @@ import '../css/index.scss';
 // π„∏Ê√ΩΩÈ
 let mediaLeftContent: any = $('.media-left-content');
 let mediaLeftTab: any = $('.media-left-tab');
+let mediaRight: any = $('.media-right');
 let tabIndex: number = 0;
 
 mediaLeftTab.on('mouseenter', '.media-left-tab-list', function() {
@@ -26,11 +27,17 @@ mediaLeftTab.on('mouseenter', '.media-left-tab-list', function() {
     mediaLeftTab
         .find('img')
         .eq(index)
-        .attr('src', 'static/images/media-img'+ (tabIndex + 1) +'-hover.png');
+        .attr('src', 'static/images/media-img'+ (index + 1) +'-hover.png');
     tabIndex = index;
     mediaLeftContent
         .find('.media-left-list')
         .eq(index)
+        .removeClass('hide')
+        .siblings()
+        .addClass('hide');
+    mediaRight
+        .find('.media-img-list').
+        eq(index)
         .removeClass('hide')
         .siblings()
         .addClass('hide');
