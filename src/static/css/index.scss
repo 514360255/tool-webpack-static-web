@@ -40,8 +40,8 @@
     }
     span{
       display: block;
-      line-height: pxTransRem(45);
-      margin-left: pxTransRem(45);
+      line-height: pxTransRem(35);
+      margin-left: pxTransRem(90);
       font-size: pxTransRem(18);
       &:before{
         display: inline-block;
@@ -57,9 +57,9 @@
     }
     a{
       display: block;
-      width: 145px;
-      height: 45px;
-      line-height: 45px;
+      width: pxTransRem(145);
+      height: pxTransRem(45);
+      line-height: pxTransRem(45);
       background-color: #359eff;
       border-radius: 5px;
       margin-left: auto;
