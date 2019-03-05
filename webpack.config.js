@@ -17,7 +17,8 @@ module.exports = {
         index: './src/static/js/index.ts',
         customized: './src/static/js/customized.ts',
         medium: './src/static/js/medium.ts',
-        extension: './src/static/js/extension.ts'
+        extension: './src/static/js/extension.ts',
+        article: './src/static/js/article.ts'
     },
     output: {
         filename: 'static/js/[name].[hash].js',
@@ -117,6 +118,12 @@ module.exports = {
             filename: 'extension.html',
             title: '运营推广',
             chunks: ['main', 'extension']
+        }),
+        new htmlWebpackPlugin({
+            template: './src/article.html',
+            filename: 'article.html',
+            title: '详情页',
+            chunks: ['main', 'article']
         }),
         new copyWebpackPlugin([{
             from: __dirname + '/src/static/images/',

@@ -1,0 +1,69 @@
+/**
+ * Created by 514360255@qq.com.
+ * User: sunshine
+ * Date: 2019/3/2
+ * Time: 15:26
+ */
+
+.position{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-bottom:1px solid #cccccc;
+  font-size: 18px;
+  color: #1f1f1f;
+  margin-bottom: 60px;
+  img{
+    margin-right: 10px;
+  }
+}
+.article-title{
+  text-align: center;
+  font-size: 18px;
+  color:#ff4b00;
+  font-weight: normal;
+  margin-bottom: 45px;
+  padding-bottom: 25px;
+  border-bottom:1px dashed #cccccc;
+}
+.article-content{
+  padding-bottom: 100px;
+  font-size: 14px;
+  color:#292929;
+  line-height: 30px;
+}
+.article-page{
+  font-size: 14px;
+  color: #292929;
+  margin-bottom: 75px;
+  img{
+    margin-right: 10px;
+  }
+  .article-page-next{
+    img{
+      transform: rotate(180deg);
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
+}
+.article{
+  margin-bottom: 100px;
+  .article-list-title{
+    font-size: 14px;
+    color: #292929;
+    margin-bottom: 25px;
+  }
+  .article-list{
+    font-size: 14px;
+    color: #292929;
+    span{
+      display: inline-block;
+      line-height: 30px;
+      &:nth-child(2){
+        margin-left: 28px;
+        margin-right: 28px;
+        color: #000000;
+      }
+    }
+  }
+}
