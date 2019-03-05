@@ -1,0 +1,75 @@
+/**
+ * Created by 514360255@qq.com.
+ * User: sunshine
+ * Date: 2019/3/2
+ * Time: 15:26
+ */
+@import "./utils.scss";
+.position{
+  padding-left: pxTransRem(20);
+  padding-top: pxTransRem(40);
+  padding-bottom: pxTransRem(20);
+  border-bottom:1px solid #cccccc;
+  font-size: pxTransRem(24);
+  color: #1f1f1f;
+  margin-bottom: pxTransRem(70);
+  img{
+    width: pxTransRem(27);
+    height: pxTransRem(27);
+    margin-right: 10px;
+  }
+}
+.article-title{
+  padding-left: pxTransRem(20);
+  padding-right: pxTransRem(20);
+  text-align: center;
+  font-size: pxTransRem(24);
+  color:#ff4b00;
+  font-weight: normal;
+  margin-bottom: pxTransRem(45);
+  padding-bottom: pxTransRem(25);
+  border-bottom:1px dashed #cccccc;
+}
+.article-content{
+  padding-left: pxTransRem(20);
+  padding-right: pxTransRem(20);
+  padding-bottom: pxTransRem(100);
+  font-size: pxTransRem(24);
+  color:#292929;
+  line-height: pxTransRem(36);
+}
+.article-page{
+  line-height: pxTransRem(36);
+  padding-left: pxTransRem(20);
+  padding-right: pxTransRem(20);
+  font-size: pxTransRem(24);
+  color: #292929;
+  margin-bottom: pxTransRem(75);
+  img{
+    width: pxTransRem(18);
+    height: pxTransRem(18);
+    margin-right: 10px;
+  }
+  .article-page-next{
+    img{
+      transform: rotate(180deg);
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
+}
+.article{
+  padding-left: pxTransRem(20);
+  padding-right: pxTransRem(20);
+  margin-bottom: pxTransRem(100);
+  .article-list-title{
+    font-size: pxTransRem(24);
+    color: #292929;
+    margin-bottom: 25px;
+  }
+  .article-list{
+    font-size: pxTransRem(24);
+    color: #292929;
+    line-height: pxTransRem(36);
+  }
+}
