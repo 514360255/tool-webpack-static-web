@@ -35,9 +35,6 @@
         @include translate(X);
       }
     }
-    .custom-tec{
-      height: pxTransRem(300);
-    }
     span{
       display: block;
       line-height: pxTransRem(35);
@@ -207,7 +204,6 @@
     }
   }
   .media-content{
-    height: pxTransRem(550);
     margin-bottom: pxTransRem(73);
     background-color: rgba(53, 158, 255, .35);
     padding-top: pxTransRem(45);

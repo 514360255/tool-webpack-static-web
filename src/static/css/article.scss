@@ -73,3 +73,126 @@
     line-height: pxTransRem(36);
   }
 }
+.integration-content{
+  padding-left: pxTransRem(20);
+  padding-right: pxTransRem(20);
+  padding-bottom: pxTransRem(100);
+  font-size: pxTransRem(24);
+  color:#292929;
+  line-height: pxTransRem(36);
+  img{
+    width: 100%;
+  }
+  p{
+    margin-bottom: pxTransRem(40);
+  }
+  .img-margin{
+    margin-top: pxTransRem(100);
+    margin-bottom: pxTransRem(100);
+  }
+}
+
+
+
+
+// 联系我们
+.contact{
+  padding-left: pxTransRem(20);
+  padding-right: pxTransRem(20);
+  box-sizing: border-box;
+}
+.contact-top{
+  padding-bottom: pxTransRem(78);
+  border-bottom: 1px dashed #d7d7d7;
+  margin-bottom: pxTransRem(70);
+  img{
+    display: block;
+    width: 100%;
+    margin-bottom: pxTransRem(75);
+  }
+  .contact-top-title{
+    margin-top: pxTransRem(40);
+    h3{
+      color: #ff4b00;
+      font-size: pxTransRem(24);
+      margin-top: pxTransRem(60);
+      margin-bottom: pxTransRem(15);
+      font-weight: normal;
+    }
+    span{
+      display: block;
+      font-size: pxTransRem(12);
+      color: #d2d2d2;
+      text-transform : uppercase;
+      margin-bottom: pxTransRem(50);
+    }
+  }
+  .contact-top-text{
+    p{
+      margin-top: 0;
+      margin-bottom: pxTransRem(30);
+      font-size: pxTransRem(24);
+      line-height: pxTransRem(30);
+      color:#292929;
+    }
+  }
+}
+.contact-do-title{
+  margin-bottom: pxTransRem(65);
+  h3{
+    color: #292929;
+    font-size: pxTransRem(24);
+    margin-top: 0;
+    margin-bottom: pxTransRem(8);
+    font-weight: normal;
+  }
+  span{
+    display: block;
+    color: #d2d2d2;
+    text-transform : uppercase;
+    font-size: pxTransRem(12);
+  }
+}
+.contact-do{
+  padding-bottom: pxTransRem(55);
+  border-bottom: 1px dashed #d7d7d7;
+  margin-bottom: pxTransRem(70);
+  > div{
+    width: 50%;
+    text-align: center;
+    margin-bottom: pxTransRem(55);
+  }
+  .contact-do-img{
+    height: pxTransRem(63);
+    img{
+      position: relative;
+      top: 50%;
+      @include translate(Y);
+      max-height: pxTransRem(63);
+    }
+  }
+  p{
+    color: #292929;
+    font-size: pxTransRem(20);
+    line-height: pxTransRem(30);
+  }
+}
+.contact-list{
+  margin-bottom: pxTransRem(115);
+  margin-left: pxTransRem(35);
+  margin-right: pxTransRem(35);
+  > div{
+    width: 50%;
+  }
+  img{
+    width: pxTransRem(79);
+    height: pxTransRem(79);
+  }
+  p{
+    font-size: pxTransRem(20);
+    line-height: pxTransRem(30);
+    color: #46454d;
+    margin-top: pxTransRem(20);
+    margin-bottom: 0;
+  }
+}
