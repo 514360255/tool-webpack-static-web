@@ -4,6 +4,7 @@
  * Date: 2019/3/2
  * Time: 15:26
  */
+@import "utils.scss";
 
 .position{
   padding-top: 30px;
@@ -30,6 +31,19 @@
   font-size: 14px;
   color:#292929;
   line-height: 30px;
+}
+.integration-content{
+  padding-bottom: 100px;
+  font-size: 14px;
+  color:#292929;
+  line-height: 30px;
+  p{
+    margin-bottom: 40px;
+  }
+  .img-margin{
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
 }
 .article-page{
   font-size: 14px;
@@ -67,3 +81,112 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+// 联系我们
+.contact-top{
+  padding-bottom: 78px;
+  border-bottom: 1px dashed #d7d7d7;
+  margin-bottom: 70px;
+  .contact-top-text{
+    margin-left: 60px;
+    h3{
+      color: #ff4b00;
+      font-size: 30px;
+      margin-top: 94px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+    span{
+      display: block;
+      font-size: 12px;
+      color: #d2d2d2;
+      text-transform : uppercase;
+      margin-bottom: 50px;
+    }
+    p{
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-size: 14px;
+      line-height: 24px;
+      color:#292929;
+    }
+  }
+}
+.contact-do-title{
+  margin-bottom: 65px;
+  h3{
+    color: #292929;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: normal;
+  }
+  span{
+    color: #d2d2d2;
+    text-transform : uppercase;
+    font-size: 12px;
+  }
+}
+.contact-do{
+  padding-bottom: 55px;
+  border-bottom: 1px dashed #d7d7d7;
+  margin-bottom: 69px;
+  > div{
+    width: 25%;
+    text-align: center;
+    margin-bottom: 55px;
+  }
+  .contact-do-img{
+    height: 63px;
+    img{
+      position: relative;
+      top: 50%;
+      @include translate(Y);
+    }
+  }
+  p{
+    font-size: 14px;
+    color: #292929;
+    line-height: 24px;
+  }
+}
+.contact-list{
+  margin-bottom: 115px;
+  margin-left: 50px;
+  margin-right: 50px;
+  > div{
+    width: 33.33333%;
+  }
+  p{
+    font-size: 14px;
+    line-height: 24px;
+    color: #46454d;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

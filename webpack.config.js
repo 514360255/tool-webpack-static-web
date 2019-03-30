@@ -21,7 +21,7 @@ module.exports = {
         article: './src/static/js/article.ts'
     },
     output: {
-        filename: 'static/js/[name].[hash].js',
+        filename: 'static/js/[name].js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -123,6 +123,18 @@ module.exports = {
             template: './src/article.html',
             filename: 'article.html',
             title: '详情页',
+            chunks: ['main', 'article']
+        }),
+        new htmlWebpackPlugin({
+            template: './src/integration.html',
+            filename: 'integration.html',
+            title: '资源整合',
+            chunks: ['main', 'article']
+        }),
+        new htmlWebpackPlugin({
+            template: './src/contact.html',
+            filename: 'contact.html',
+            title: '联系我们',
             chunks: ['main', 'article']
         }),
         new copyWebpackPlugin([{
