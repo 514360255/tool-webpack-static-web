@@ -57,8 +57,6 @@ Glob.sync('./src/pages/*.html').forEach(item => {
     handleHtmlPage(currentFile, isFile);
 });
 
-console.log(files);
-
 module.exports = {
     entry: {
         common: './src/static/js/common.ts',
