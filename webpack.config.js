@@ -5,16 +5,64 @@
  */
 
 const path = require('path');
+const Glob = require('glob');
+const fs = require('fs');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const favicon = './src/static/images/favicon.ico';
+const meta = {
+    'viewport': 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',
+    // 'X-UA-Compatible': 'ie=edge',
+    'X-UA-Compatible': 'IE=edge,chrome=1',
+    'renderer': 'webkit',
+    'flexible': 'initial-dpr=1',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-touch-fullscreen': 'yes',
+    'format-detection': 'telephone=no,address=no',
+    'apple-mobile-web-app-status-bar-style': 'white',
+}
+const files = {
+    entry: {},
+    htmlPage: []
+};
+
+const exitsFile = (p) => {
+    return fs.existsSync(path.resolve(__dirname, p));
+}
+
+const handleHtmlPage = (currentFile, isFile) => {
+    files.htmlPage.push(
+        new htmlWebpackPlugin({
+            template: `./src/pages/${currentFile}.html`,
+            filename: `${currentFile}.html`,
+            minify: {
+                removeComments: true
+            },
+            inject: 'body',
+            chunks: ['common', isFile ? currentFile : null]
+        })
+    )
+}
+
+Glob.sync('./src/pages/*.html').forEach(item => {
+    const p = item.replace(/(\.html)$/, '');
+    const splitPath = p.split('/');
+    const currentFile = splitPath.pop();
+    const jsFilePath = `${p.replace(/(pages)/, 'static/js')}.ts`;
+    const isFile = exitsFile(jsFilePath);
+    if(isFile) files.entry[currentFile] = jsFilePath;
+    handleHtmlPage(currentFile, isFile);
+});
+
+console.log(files);
 
 module.exports = {
     entry: {
-        main: './src/static/js/main.ts',
-        index: './src/static/js/index.ts'
+        common: './src/static/js/common.ts',
+        ...files.entry
     },
     output: {
         filename: 'static/js/[name].[hash].js',
@@ -91,12 +139,7 @@ module.exports = {
             },
             canPrint: true,
         }),
-        new htmlWebpackPlugin({
-            template: './src/index.html',
-            filename: 'index.html',
-            title: 'demo',
-            chunks: ['main', 'index']
-        }),
+        ...files.htmlPage,
         new copyWebpackPlugin([{
             from: __dirname + '/src/static/images/',
             to: './static/images/'
