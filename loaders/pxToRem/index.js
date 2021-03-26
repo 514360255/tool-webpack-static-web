@@ -16,10 +16,11 @@ const getValue = val => {
 }
 
 module.exports = source => {
+    if(!config.remAllTranslate) return source;
     const options = loaderUtils.getOptions(this);
     Object.assign(config, options || {});
 
     return source.replace(regExp(), ($0, $1) => {
-        return getValue($1 / 100);
+        return $1 > config.remMinExclude ? getValue($1 / 100) : $0;
     });
 }
