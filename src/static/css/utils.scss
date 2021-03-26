@@ -66,8 +66,3 @@
     -webkit-transform: translateY(-50%);
   }
 }
-
-// px 转换成 rem
-@function pxTransRem($value) {
-  @return #{$value / 100}rem;
-}

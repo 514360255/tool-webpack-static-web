@@ -6,7 +6,7 @@
 ((doc: any, win: any) => {
     let docEl: any = doc.documentElement;
     let isIOS: any = navigator.userAgent.match(/iphone|ipod|ipad/gi);
-    let dpr:any = isIOS? Math.min(win.devicePixelRatio, 3) : 1;
+    let dpr:any = isIOS ? Math.min(win.devicePixelRatio, 3) : 1;
         dpr = window.top === window.self? dpr : 1; //被iframe引用时，禁止缩放
         dpr = 1; // 首页引用IFRAME，强制为1
     let scale: number = 1 / dpr

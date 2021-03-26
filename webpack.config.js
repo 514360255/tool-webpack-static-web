@@ -8,14 +8,11 @@ const path = require('path');
 const Glob = require('glob');
 const fs = require('fs');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const favicon = './src/static/images/favicon.ico';
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const faviconPath = './src/static/images/favicon.ico';
+const isDev = process.env.NODE_ENV === 'development'
 const meta = {
-    'viewport': 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',
-    // 'X-UA-Compatible': 'ie=edge',
     'X-UA-Compatible': 'IE=edge,chrome=1',
     'renderer': 'webkit',
     'flexible': 'initial-dpr=1',
@@ -34,6 +31,7 @@ const exitsFile = (p) => {
 }
 
 const handleHtmlPage = (currentFile, isFile) => {
+    const favicon = exitsFile(faviconPath);
     files.htmlPage.push(
         new htmlWebpackPlugin({
             template: `./src/pages/${currentFile}.html`,
@@ -42,6 +40,8 @@ const handleHtmlPage = (currentFile, isFile) => {
                 removeComments: true
             },
             inject: 'body',
+            favicon: favicon ? favicon : null,
+            meta: meta,
             chunks: ['common', isFile ? currentFile : null]
         })
     )
@@ -57,6 +57,24 @@ Glob.sync('./src/pages/*.html').forEach(item => {
     handleHtmlPage(currentFile, isFile);
 });
 
+const cssRule = [
+    {loader: 'css-loader'},
+    {loader: 'postcss-loader'}
+]
+if(isDev) cssRule.unshift('style-loader');
+
+const scssRule = [
+    {loader:"css-loader"},
+    {loader:"sass-loader"},
+    {
+        loader: 'pxToRem/index.js',
+        options: {
+            remUnit: 750
+        }
+    }
+]
+if(isDev) scssRule.unshift('style-loader');
+
 module.exports = {
     entry: {
         common: './src/static/js/common.ts',
@@ -65,6 +83,9 @@ module.exports = {
     output: {
         filename: 'static/js/[name].[hash].js',
         path: path.resolve(__dirname, 'dist')
+    },
+    resolveLoader: {
+        modules: ['node_modules', 'loaders']
     },
     module: {
         rules: [
@@ -84,27 +105,12 @@ module.exports = {
                 }
             },
             {
-              test: /\.css$/,
-              use: ExtractTextPlugin.extract({
-                  fallback: 'style-loader',
-                  use: [
-                      {loader: 'css-loader'},
-                      {loader: 'postcss-loader'}
-                  ],
-                  publicPath: '../css'
-              })
-
+                test: /\.css$/,
+                use: isDev ? cssRule : ExtractTextPlugin.extract({use: scssRule, publicPath: '../css'})
             },
             {
                 test: /\.(sass|scss)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback:"style-loader",
-                    use:[{
-                        loader:"css-loader"
-                    },{
-                        loader:"sass-loader"
-                    }]
-                })
+                use: isDev ? scssRule : ExtractTextPlugin.extract({use: scssRule})
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -113,9 +119,8 @@ module.exports = {
                         loader:'url-loader',
                         options: {
                             limit: 10000,
-                            name: 'images/[name].[ext]',
-                            publicPath: '../',
-                            outputPath: 'static/'
+                            name: 'static/images/[name].[ext]',
+                            publicPath: '../'
                         }
                     }
                 ]
@@ -126,17 +131,6 @@ module.exports = {
         extensions: ['.ts', '.js', '.jsx', '.tsx']
     },
     plugins: [
-        new CleanWebpackPlugin('dist'),
-        new ExtractTextPlugin('static/css/[name].css', {
-            allChunks: false
-        }),
-        new OptimizeCssAssetsPlugin({
-            cssProcessorOptions: {
-                mergeLonghand: false,
-                discardComments: { removeAll: true }
-            },
-            canPrint: true,
-        }),
         ...files.htmlPage,
         new copyWebpackPlugin([{
             from: __dirname + '/src/static/images/',

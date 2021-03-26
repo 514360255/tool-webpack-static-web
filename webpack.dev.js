@@ -1,7 +1,7 @@
 const path = require('path');
 
 const baseConfig = require('./webpack.config');
-const { HotModuleReplacementPlugin } = require('webpack');
+const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 
 const devConfig = {
@@ -10,6 +10,7 @@ const devConfig = {
     devServer: {
         index: 'index.html',
         hot: true,
+        hotOnly: true,
         publicPath: '/',
         overlay: true,
         open: true,
@@ -19,7 +20,7 @@ const devConfig = {
         port: 8888
     },
     plugins: [
-        new HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
 

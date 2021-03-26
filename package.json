@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --color --inline --content-base ./dist",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js",
-    "build": "webpack -p"
+    "build": "cross-env NODE_ENV=production webpack -p --config webpack.prod.js --progress --inline --colors"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "glob": "^7.1.6",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "loader-utils": "^2.0.0",
     "node-sass": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss": "^7.0.14",

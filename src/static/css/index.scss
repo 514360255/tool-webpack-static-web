@@ -7,15 +7,16 @@
 @import "./utils.scss";
 
 html, body{
-  background: url('../images/creativename_600X500.jpg') no-repeat right top;
+  background: url('../../static/images/creativename_600X500.jpg') no-repeat right top;
   background-size: cover;
   img{
-    width: 100px;
-    height: 200px;
+    width: 200px;
+    height: 400px;
   }
 }
+
 .test{
-  width: pxTransRem(100);
-  height: pxTransRem(100);
-  background-color: red;
+  width: 200px;
+  height: 200px;
+  background-color: #000000;
 }
