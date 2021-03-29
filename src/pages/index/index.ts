@@ -3,8 +3,9 @@
  * User: sunshine
  * Date: 2019/3/1
  */
-import '../css/index.scss';
+import './index.scss';
 
 $('img').each((key: number, item: any) => {
     console.log(key, $(item).attr('src'));
 });
+console.log(true);

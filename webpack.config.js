@@ -30,11 +30,11 @@ const exitsFile = (p) => {
     return fs.existsSync(path.resolve(__dirname, p));
 }
 
-const handleHtmlPage = (currentFile, isFile) => {
+const handleHtmlPage = (currentFile, isFile, file) => {
     const favicon = exitsFile(faviconPath);
     files.htmlPage.push(
         new htmlWebpackPlugin({
-            template: `./src/pages/${currentFile}.html`,
+            template: `./src/pages/${file}/${currentFile}.html`,
             filename: `${currentFile}.html`,
             minify: {
                 removeComments: true
@@ -47,14 +47,15 @@ const handleHtmlPage = (currentFile, isFile) => {
     )
 }
 
-Glob.sync('./src/pages/*.html').forEach(item => {
+Glob.sync('./src/pages/**/*.html').forEach(item => {
     const p = item.replace(/(\.html)$/, '');
+    const fileSplit = p.split('/');
     const splitPath = p.split('/');
     const currentFile = splitPath.pop();
-    const jsFilePath = `${p.replace(/(pages)/, 'static/js')}.ts`;
+    const jsFilePath = `${p}.ts`;
     const isFile = exitsFile(jsFilePath);
     if(isFile) files.entry[currentFile] = jsFilePath;
-    handleHtmlPage(currentFile, isFile);
+    handleHtmlPage(currentFile, isFile, fileSplit[fileSplit.length - 1]);
 });
 
 const cssRule = [
