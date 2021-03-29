@@ -15,7 +15,7 @@ const devConfig = {
         overlay: true,
         open: true,
         liveReload: true,
-        contentBase: [path.join(__dirname, './dist')],
+        contentBase: [path.join(__dirname, './src'), path.join(__dirname, './dist')],
         watchContentBase: true,
         port: 8888
     },

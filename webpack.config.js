@@ -60,8 +60,7 @@ Glob.sync('./src/pages/*.html').forEach(item => {
 const cssRule = [
     {loader: 'css-loader'},
     {loader: 'postcss-loader'}
-]
-if(isDev) cssRule.unshift('style-loader');
+];
 
 const scssRule = [
     {loader:"css-loader"},
@@ -69,13 +68,18 @@ const scssRule = [
     {
         loader: 'pxToRem/index.js',
         options: {
-            remUnit: 750
+            remUnit: 750,
+            remAllTranslate: false
         }
     }
-]
-if(isDev) scssRule.unshift('style-loader');
+];
 
-module.exports = {
+if(isDev) {
+    cssRule.unshift('style-loader');
+    scssRule.unshift('style-loader');
+}
+
+const config = {
     entry: {
         common: './src/static/js/common.ts',
         ...files.entry
@@ -99,7 +103,7 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
-                    query: {
+                    options: {
                         presets: ['es2015']
                     }
                 }
@@ -138,3 +142,5 @@ module.exports = {
         }])
     ]
 };
+
+module.exports = config;
