@@ -30,14 +30,16 @@ const exitsFile = (p) => {
     return fs.existsSync(path.resolve(__dirname, p));
 }
 
-const handleHtmlPage = (currentFile, isFile, file) => {
+const handleHtmlPage = (currentFile, isFile) => {
     const favicon = exitsFile(faviconPath);
     files.htmlPage.push(
         new htmlWebpackPlugin({
-            template: `./src/pages/${file}/${currentFile}.html`,
+            template: `./src/pages/${currentFile}/index.html`,
             filename: `${currentFile}.html`,
             minify: {
-                removeComments: true
+                removeComments: true,
+                collapseWhitespace: false,
+                removeAttributeQuotes: false
             },
             inject: 'body',
             favicon: favicon ? favicon : null,
@@ -47,15 +49,15 @@ const handleHtmlPage = (currentFile, isFile, file) => {
     )
 }
 
-Glob.sync('./src/pages/**/*.html').forEach(item => {
-    const p = item.replace(/(\.html)$/, '');
-    const fileSplit = p.split('/');
-    const splitPath = p.split('/');
-    const currentFile = splitPath.pop();
-    const jsFilePath = `${p}.ts`;
-    const isFile = exitsFile(jsFilePath);
-    if(isFile) files.entry[currentFile] = jsFilePath;
-    handleHtmlPage(currentFile, isFile, fileSplit[fileSplit.length - 1]);
+Glob.sync('./src/pages/**/index.html').forEach(item => {
+    const splitPath = item.split('/');
+    splitPath.pop();
+    const currentFile = splitPath[splitPath.length - 1];
+    if(currentFile === 'common' || currentFile === 'components') return;
+    const jsFileName = `${splitPath.join('/')}/index.ts`;
+    const isFile = exitsFile(jsFileName);
+    if(isFile) files.entry[currentFile] = jsFileName;
+    handleHtmlPage(currentFile, isFile);
 });
 
 const cssRule = [
@@ -67,10 +69,9 @@ const scssRule = [
     {loader:"css-loader"},
     {loader:"sass-loader"},
     {
-        loader: 'pxToRem/index.js',
+        loader: 'pxToVw/index.js',
         options: {
-            remUnit: 750,
-            remAllTranslate: false
+            // translateMedia: true
         }
     }
 ];
@@ -111,11 +112,11 @@ const config = {
             },
             {
                 test: /\.css$/,
-                use: isDev ? cssRule : ExtractTextPlugin.extract({use: scssRule, publicPath: '../css'})
+                use: isDev ? cssRule : ExtractTextPlugin.extract({fallback: 'style-loader', use: scssRule, publicPath: '../css'})
             },
             {
                 test: /\.(sass|scss)$/,
-                use: isDev ? scssRule : ExtractTextPlugin.extract({use: scssRule})
+                use: isDev ? scssRule : ExtractTextPlugin.extract({fallback: 'style-loader', use: scssRule})
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -137,6 +138,9 @@ const config = {
     },
     plugins: [
         ...files.htmlPage,
+        new ExtractTextPlugin('static/css/[name].css', {
+            allChunks: false
+        }),
         new copyWebpackPlugin([{
             from: __dirname + '/src/static/images/',
             to: './static/images/'

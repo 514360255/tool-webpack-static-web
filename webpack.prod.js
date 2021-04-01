@@ -8,9 +8,6 @@ const webpackMerge = require('webpack-merge');
 const prodConfig = {
     mode: 'production',
     plugins: [
-        new ExtractTextPlugin('static/css/[name].css', {
-            allChunks: false
-        }),
         new OptimizeCssAssetsPlugin({
             cssProcessorOptions: {
                 mergeLonghand: false,

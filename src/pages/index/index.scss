@@ -16,8 +16,25 @@ html, body{
 }
 
 .test{
-  width: 200px;
+  width: 26.6666vw;
+  height: 26.6666vw;
+  background-color: #000000;
+}
+
+.test1{
+  width: 13.3333vw;
   height: 200px;
   background-color: #000000;
-  border: 1px solid red;
+}
+
+@media (max-width: 749px) {
+  body{
+    width: 300px;
+  }
+}
+
+@media (max-width: 780px) {
+  body{
+    height: 300px;
+  }
 }
