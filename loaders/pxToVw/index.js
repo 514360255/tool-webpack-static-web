@@ -37,8 +37,8 @@ const handleMediaUnit = (source) => {
     let result = source.replace(/[\r\n\t]+/g, '');
     mediaArr.forEach(item => {
         const itemReg = item.replace(/\(/g, '\\(').replace(/\)/g, '\\)');
-        const replaceStr = item.replace(new RegExp(pxRegExp.source, 'g'), ($0, $1) => calcValue($0, $1));
-        result = result.replace(new RegExp(itemReg, 'g'), replaceStr);
+        const replaceStr = item.replace(regExp(), ($0, $1) => calcValue($0, $1));
+        result = result.replace(regExp(itemReg), replaceStr);
     })
     return result;
 }

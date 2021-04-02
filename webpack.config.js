@@ -37,9 +37,11 @@ const handleHtmlPage = (currentFile, isFile) => {
             template: `./src/pages/${currentFile}/index.html`,
             filename: `${currentFile}.html`,
             minify: {
-                removeComments: true,
-                collapseWhitespace: false,
-                removeAttributeQuotes: false
+                removeRedundantAttributes:true, // 删除多余的属性
+                collapseWhitespace:true, // 折叠空白区域
+                removeAttributeQuotes: true, // 移除属性的引号
+                removeComments: true, // 移除注释
+                collapseBooleanAttributes: true // 省略只有 boolean 值的属性值 例如：readonly checked
             },
             inject: 'body',
             favicon: favicon ? favicon : null,
