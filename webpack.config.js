@@ -71,7 +71,7 @@ const scssRule = [
     {
         loader: 'pxToVw/index.js',
         options: {
-            // translateMedia: true
+            translateMedia: true
         }
     }
 ];
