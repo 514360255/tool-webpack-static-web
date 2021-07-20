@@ -1,2 +1,2 @@
 # webpack static web project
-webpack构建工具基础环境
+webpack打包html、css、js打包静态页面
