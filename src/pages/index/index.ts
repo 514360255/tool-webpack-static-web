@@ -8,5 +8,6 @@ const moment = require('moment');
 
 $('img').each((key: number, item: any) => {
     console.log(key, $(item).attr('src'));
+    console.log(true);
 });
 console.log(moment());
